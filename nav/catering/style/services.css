@@ -1,0 +1,27 @@
+.services-heading {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 0.0625em;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 1em auto;
+  width: fit-content;
+}
+
+.services-list .service-item {
+  position: relative;
+  padding: 0.5em 0 0.5em 1.75em;
+  line-height: 1.6;
+}
+
+.services-list .service-item::before {
+  content: "\2713";
+  position: absolute;
+  left: 0.25em;
+  top: 0.5em;
+  color: var(--theme-accent);
+  font-weight: 700;
+}

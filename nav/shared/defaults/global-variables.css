@@ -1,0 +1,56 @@
+:root {
+  --base-dpi: 1px;
+  --base-font-size: 24rem;
+  --base-font: "Brisa Sans", Helvetica, Arial, sans-serif;
+  --base-text-hex: #FFF;
+  --base-bg: #37323E;
+  --base-border-size:.125em;
+  --base-spacing:.25em;
+  --topnav-bg: rgba(55, 50, 62, .375);
+
+  /* Theme hue system — perceptually uniform via oklch.
+     --theme-hue is the one knob. 232 reproduces the original cyan/blue.
+     theme.js overrides at runtime with art-derived base + time-of-day bias. */
+  --theme-hue: 87.88;
+  --theme-chroma: 0.14;
+  --theme-L-accent: 0.86;
+  --theme-L-deep:   0.32;
+  --theme-L-border: 0.50;
+
+  --theme-accent: oklch(var(--theme-L-accent) var(--theme-chroma) var(--theme-hue));
+  --theme-deep:   oklch(var(--theme-L-deep)   var(--theme-chroma) var(--theme-hue));
+  --theme-border: oklch(var(--theme-L-border) calc(var(--theme-chroma) * 0.6) var(--theme-hue));
+  --theme-glow:   color-mix(in oklch, var(--theme-accent) 25%, transparent);
+
+  /* Shadow tiers — percentages match actual alphas encountered in the codebase. */
+  --theme-shadow-10: color-mix(in oklch, var(--theme-deep) 10%, transparent);
+  --theme-shadow-15: color-mix(in oklch, var(--theme-deep) 15%, transparent);
+  --theme-shadow-18: color-mix(in oklch, var(--theme-deep) 18%, transparent);
+  --theme-shadow-20: color-mix(in oklch, var(--theme-deep) 20%, transparent);
+  --theme-shadow-28: color-mix(in oklch, var(--theme-deep) 28%, transparent);
+  --theme-shadow-40: color-mix(in oklch, var(--theme-deep) 40%, transparent);
+  --theme-shadow-50: color-mix(in oklch, var(--theme-deep) 50%, transparent);
+  --theme-shadow-57: color-mix(in oklch, var(--theme-deep) 57%, transparent);
+
+  --shadow-outer: 0 .2em .5em var(--theme-shadow-57),
+                  .2em 0 .5em var(--theme-shadow-57),
+                  -.2em 0 .5em var(--theme-shadow-57);
+
+  /* Time-of-day bg stack — opacities driven by theme.js phase engine,
+     image URLs swappable without touching markup. */
+  --bg-dawn-opacity: 0;
+  --bg-morning-opacity: 0;
+  --bg-noon-opacity: 0;
+  --bg-afternoon-opacity: 0;
+  --bg-sunset-opacity: 0;
+  --bg-evening-opacity: 0;
+  --bg-night-opacity: 0;
+
+  --bg-dawn-url:      url("/web/icons/0-sunrise.jpg");
+  --bg-morning-url:   url("/web/icons/1-morning.jpg");
+  --bg-noon-url:      url("/web/icons/2-noon.jpg");
+  --bg-afternoon-url: url("/web/icons/3-afternoon.jpg");
+  --bg-sunset-url:    url("/web/icons/4-sunset.jpg");
+  --bg-evening-url:   url("/web/icons/5-evening.jpg");
+  --bg-night-url:     url("/web/icons/6-midnight.jpg");
+}

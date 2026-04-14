@@ -1,0 +1,62 @@
+/* Background  - Full-page cover layer */
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: -1 !important;
+  overflow: hidden;
+  pointer-events: none;
+  aspect-ratio: unset;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Vignette overlay */
+.bg-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(55, 50, 62, 0.85) 0, rgba(55, 50, 62, 0.5) 2.5em, rgba(55, 50, 62, 0) 5em),
+    radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.25) 100%),
+    rgba(55, 50, 62, 0.3);
+}
+
+/* Time-of-day background stack.
+   7 fixed, cover-sized layers fade between each other on a weighted schedule
+   (dawn 4%, morning 21%, noon 8%, afternoon 17%, sunset 4%, evening 17%, night 29%).
+   Opacities are driven by nav/shared/theme.js; URLs live in global-variables.css. */
+.time-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.time-bg > div {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1s linear;
+  will-change: opacity;
+}
+
+.time-bg > .dawn      { background-image: var(--bg-dawn-url);      opacity: var(--bg-dawn-opacity); }
+.time-bg > .morning   { background-image: var(--bg-morning-url);   opacity: var(--bg-morning-opacity); }
+.time-bg > .noon      { background-image: var(--bg-noon-url);      opacity: var(--bg-noon-opacity); }
+.time-bg > .afternoon { background-image: var(--bg-afternoon-url); opacity: var(--bg-afternoon-opacity); }
+.time-bg > .sunset    { background-image: var(--bg-sunset-url);    opacity: var(--bg-sunset-opacity); }
+.time-bg > .evening   { background-image: var(--bg-evening-url);   opacity: var(--bg-evening-opacity); }
+.time-bg > .night     { background-image: var(--bg-night-url);     opacity: var(--bg-night-opacity); }

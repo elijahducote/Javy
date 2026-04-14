@@ -1,0 +1,73 @@
+{
+  "name": "Javy",
+  "siteIndex":
+  [
+    {
+      "name": "home",
+      "meta":
+      {
+        "metatags":
+        [
+          "viewport",
+          "width=device-width,initial-scale=1.0"
+        ],
+        "pageName": null,  "//1":
+        "pageName: Infers from global + local name if unspecified",
+        "encoding": "UTF-8",
+        "resources":
+        [
+          "https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css",
+          "/src/shared/index.css",
+          "/src/home/main.css",
+          "/src/shared/index.js"
+        ], "//2":
+        "resources: Either string or object of HTML attributes"
+      }
+    },
+    {
+      "name": "contact",
+      "meta":
+      {
+        "metatags":
+        [
+          "viewport",
+          "width=device-width,initial-scale=1.0"
+        ],
+        "pageName": null,
+        "encoding": "UTF-8",
+        "resources":
+        [
+          "https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css",
+          "/src/shared/index.css",
+          "/src/contact/main.css",
+          "/src/shared/index.js",
+          {
+            "src": "https://js.hcaptcha.com/1/api.js",
+            "async": true,
+            "defer": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "catering",
+      "meta":
+      {
+        "metatags":
+        [
+          "viewport",
+          "width=device-width,initial-scale=1.0"
+        ],
+        "pageName": null,
+        "encoding": "UTF-8",
+        "resources":
+        [
+          "https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css",
+          "/src/shared/index.css",
+          "/src/catering/main.css",
+          "/src/shared/index.js"
+        ]
+      }
+    }
+  ]
+}
