@@ -214,7 +214,7 @@ hr {
   color: #fff;
   
   /* Typography baseline */
-  font-weight: 400;
+  font-weight: normal;
   font-stretch: 100%;
   letter-spacing: .05em;
   line-height: 1.6;
@@ -243,8 +243,8 @@ hr {
   border-radius: 1.4em;
   padding: 1.25em 1.5em;
   margin: 1em 0;
-  font-style: italic;
-  font-weight: 300;
+  font-style: normal;
+  font-weight: normal !important;
   letter-spacing: .01em;
   line-height: 1.7;
   opacity: .8;

@@ -111,6 +111,7 @@ async function processHTML(nav, pageName = null) {
   webDQment,
   formatted,
   tab,
+  iconsHtml = null,
   icons;
 
   try {
@@ -123,7 +124,7 @@ async function processHTML(nav, pageName = null) {
       warn: false,
       manifest: true,
     });
-    icons = JSDOM.fragment(output);
+    iconsHtml = output;
   } catch (err) {
     print(`{fail}Icons failed: \n${err}{/fail}`)
   }
@@ -131,6 +132,9 @@ async function processHTML(nav, pageName = null) {
   for (const nomer of pagesToProcess) {
     page = pageMap[nomer];
     if (!page) continue;
+
+    // Fresh fragment per page — appending a fragment empties it
+    icons = iconsHtml ? JSDOM.fragment(iconsHtml) : null;
 
     await import(`./nav/${nomer}/${nomer}.js`)
     .then(module => {

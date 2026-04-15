@@ -209,10 +209,14 @@ function initScrollHandler() {
 
   scrollContainer.addEventListener("scroll", throttle(handleNavVisibility, 100));
 
-  // Use IntersectionObserver for footer visibility — avoids getBoundingClientRect in scroll
+  // Use IntersectionObserver for footer visibility — avoids getBoundingClientRect in scroll.
+  // Sentinel is pinned to the bottom of tab-list (which is position:relative) so it only
+  // intersects when the user has actually scrolled near the end of content. Without absolute
+  // positioning, the sentinel becomes a centered flex child on short-content pages and
+  // reports intersecting from scrollTop=0, causing the footer to overlap the text-card.
   if (footer && tabListEl) {
     const sentinel = document.createElement("div");
-    sentinel.style.cssText = "height:1px;pointer-events:none;";
+    sentinel.style.cssText = "position:absolute;bottom:0;left:0;right:0;height:1px;pointer-events:none;";
     tabListEl.appendChild(sentinel);
     new IntersectionObserver(
       ([entry]) => setFooterVisibility(entry.isIntersecting && scrollContainer.scrollTop > 0),
