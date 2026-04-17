@@ -23,7 +23,7 @@ export default function Home(tags) {
     logoContainer,
     htm(tags, "Javy Good Times", "h1", {class: "video-title"}),
     htm(tags, undefined, "hr"),
-    htm(tags,"Caterings \u00b7 Pops \u00b7 Margarita Tours", "p"),
+    htm(tags,"Caterings \u00b7 Pop-ups \u00b7 Margarita Tours", "p"),
     hero,
     htm(tags, "Our Mission", "h2"),
     htm(tags, undefined, "hr"),
